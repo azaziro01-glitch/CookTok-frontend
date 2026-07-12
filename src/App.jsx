@@ -65,8 +65,15 @@ function AuthScreen({ onAuthed }) {
       const body = mode === "login"
         ? { email: form.email, password: form.password }
         : { username: form.username, email: form.email, password: form.password };
-      const data = await api(path, { method: "POST", body: JSON.stringify(body) });
-      onAuthed(data.token, data.user);
+      const data = await api(path, {
+  method: "POST",
+  body: JSON.stringify(body)
+});
+
+localStorage.setItem("token", data.token);
+localStorage.setItem("user", JSON.stringify(data.user));
+
+onAuthed(data.token, data.user);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -751,8 +758,11 @@ function UploadFlow({ api, onPublished, onClose }) {
 }
 
 export default function CookTok() {
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
+ const [token, setToken] = useState(() => localStorage.getItem("token"));
+const [user, setUser] = useState(() => {
+  const savedUser = localStorage.getItem("user");
+  return savedUser ? JSON.parse(savedUser) : null;
+});
   const [recipes, setRecipes] = useState([]);
   const [feedLoading, setFeedLoading] = useState(true);
   const [feedError, setFeedError] = useState("");
