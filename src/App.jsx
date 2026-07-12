@@ -891,12 +891,18 @@ const [user, setUser] = useState(() => {
               return <div key={r.id} className="aspect-square rounded-lg flex items-center justify-center text-2xl" style={{ background: `linear-gradient(160deg, ${t.from}, ${t.to})` }}>{t.emoji}</div>;
             })}
           </div>
-          <button className="btn-ghost" style={{ marginTop: 20 }} onClick={() => {
+         <button
+  className="btn-ghost"
+  style={{ marginTop: 20 }}
+  onClick={() => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setToken(null);
     setUser(null);
- }}>Log out</button>
+  }}
+>
+  Log out
+</button>
         </div>
       )}
 
