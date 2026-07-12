@@ -896,7 +896,7 @@ const [user, setUser] = useState(() => {
     localStorage.removeItem("user");
     setToken(null);
     setUser(null);
-}} }}>Log out</button>
+ }}>Log out</button>
         </div>
       )}
 
