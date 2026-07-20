@@ -8,7 +8,8 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recha
 
 // Set VITE_API_BASE_URL in your .env (local) or in Vercel's project settings (production).
 // Falls back to localhost so `npm run dev` works out of the box against a local backend.
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "https://cooktok-backend.onrender.com";
 
 const FONT_IMPORT = `@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');`;
 
